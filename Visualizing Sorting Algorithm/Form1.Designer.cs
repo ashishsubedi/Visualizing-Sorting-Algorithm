@@ -31,6 +31,9 @@
             this.surface1 = new System.Windows.Forms.Panel();
             this.surface2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.radioBubbleSOrt = new System.Windows.Forms.RadioButton();
+            this.radioQuickSort = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // surface1
@@ -63,11 +66,46 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // radioBubbleSOrt
+            // 
+            this.radioBubbleSOrt.AutoSize = true;
+            this.radioBubbleSOrt.Location = new System.Drawing.Point(13, 337);
+            this.radioBubbleSOrt.Name = "radioBubbleSOrt";
+            this.radioBubbleSOrt.Size = new System.Drawing.Size(103, 21);
+            this.radioBubbleSOrt.TabIndex = 4;
+            this.radioBubbleSOrt.TabStop = true;
+            this.radioBubbleSOrt.Text = "Bubble Sort";
+            this.radioBubbleSOrt.UseVisualStyleBackColor = true;
+            // 
+            // radioQuickSort
+            // 
+            this.radioQuickSort.AutoSize = true;
+            this.radioQuickSort.Location = new System.Drawing.Point(141, 337);
+            this.radioQuickSort.Name = "radioQuickSort";
+            this.radioQuickSort.Size = new System.Drawing.Size(95, 21);
+            this.radioQuickSort.TabIndex = 5;
+            this.radioQuickSort.TabStop = true;
+            this.radioQuickSort.Text = "Quick Sort";
+            this.radioQuickSort.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(546, 383);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 418);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.radioQuickSort);
+            this.Controls.Add(this.radioBubbleSOrt);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.surface2);
             this.Controls.Add(this.surface1);
@@ -76,6 +114,7 @@
             this.Text = "Visualizing Sort";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -84,6 +123,9 @@
         private System.Windows.Forms.Panel surface1;
         private System.Windows.Forms.Panel surface2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RadioButton radioBubbleSOrt;
+        private System.Windows.Forms.RadioButton radioQuickSort;
+        private System.Windows.Forms.Button button1;
     }
 }
 

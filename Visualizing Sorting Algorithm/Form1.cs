@@ -27,8 +27,11 @@ namespace Visualizing_Sorting_Algorithm
         Bitmap bitmap;
 
         public static List<double> datas;
+        public static List<double> datas2;
+
         Random rand;
-        public static Graphics graphics;
+        public static Graphics graphics1;
+        public static Graphics graphics2;
         Algorithm algorithm;
        // public static UpdateDrawing updateDrawing;
         public Form1()
@@ -47,16 +50,24 @@ namespace Visualizing_Sorting_Algorithm
             algorithm = new Algorithm(this);
             //updateDrawing = DrawPoints;
             this.DoubleBuffered = true;
-            surface1.Paint += new PaintEventHandler(this.DrawPointsEventHandler);
+            surface1.Paint += new PaintEventHandler(this.DrawPoints1EventHandler);
+           // surface2.Paint += new PaintEventHandler(this.DrawPoints2EventHandler);
 
             
             //draw += algorithm.DrawPoints;
         }
 
-        private void DrawPointsEventHandler(object sender, EventArgs e)
+        private void DrawPoints2EventHandler(object sender, PaintEventArgs e)
+        {
+            algorithm.DrawPoints2((Panel)sender, graphics2);
+        }
+
+        private void DrawPoints1EventHandler(object sender, EventArgs e)
         {
             
-            algorithm.DrawPoints(surface1, graphics);
+            algorithm.DrawPoints1((Panel)sender, ref graphics1);
+            
+
         }
 
         [DllImport("kernel32.dll", SetLastError = true)]
@@ -72,18 +83,16 @@ namespace Visualizing_Sorting_Algorithm
         private void GenerateRandomData()
         {
             datas = new List<double>(0);
+            datas2 = new List<double>(0);
             for (int i = 0; i < 100; i++)
             {
                 
                 double random = 400 * rand.NextDouble();
                 datas.Add(random);
+                double random2 = 400 * rand.NextDouble();
+                datas2.Add(random2);
             }
-            foreach (var data in datas)
-            {
-                Console.WriteLine($"{data} and {surface1.Height-(surface1.Height - data)}");
-                
-            }
-            Console.WriteLine("END");
+            
             
         }
 
@@ -105,7 +114,11 @@ namespace Visualizing_Sorting_Algorithm
 
         private void button2_Click(object sender, EventArgs e)
         {
-            algorithm.BubbleSort(datas, surface1,graphics);
+            if(radioBubbleSOrt.Checked)
+                algorithm.BubbleSort(datas);
+            else if(radioQuickSort.Checked)
+                algorithm.QuickSort(datas, 0, datas.Count -1);
+        
 
         }
         public void RefreshFrame()
@@ -117,6 +130,11 @@ namespace Visualizing_Sorting_Algorithm
         private void surface2_Paint(object sender, PaintEventArgs e)
         {
             
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            surface1.BackgroundImage = Visualizing_Sorting_Algorithm.Properties.Resources.test;
         }
     }
 }
